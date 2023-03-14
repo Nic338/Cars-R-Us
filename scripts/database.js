@@ -23,11 +23,16 @@ const database = {
         {id: 3, price: 1300, style:"18-inch Spoke Silver"},
         {id: 4, price: 1400, style:"18-inch Pair Black"},
     ],
+    models: [
+        {id: 1, name: "Car", price: 1},
+        {id: 2, name: "SUV", price: 1.5},
+        {id: 3, name: "Truck", price: 2.25}
+    ],
     orderBuilder: {},
 
     
     customOrders: [
-        {id: 1, paintId: 3, interiorId: 2, techId: 1, wheelId: 1, timestamp:1614538976455}
+        {id: 1, paintId: 3, interiorId: 2, techId: 1, wheelId: 1, modelId:3, timestamp:1614538976455}
     ]
 
 }
@@ -48,6 +53,9 @@ export const getWheels = () => {
 export const getOrders = () => {
     return database.customOrders.map(customOrder => ({...customOrder}))
 }
+export const getModels = () => {
+    return database.models.map(model => ({...model}))
+}
 export const setPaint = (id) => {
     database.orderBuilder.paintId = id
 }
@@ -59,6 +67,9 @@ export const setInterior = (id) => {
 }
 export const setWheels = (id) => {
     database.orderBuilder.wheelId = id
+}
+export const setModels = (id) => {
+    database.orderBuilder.modelId = id
 }
 export const addCustomOrder = () => {
     // Copy the current state of user choices

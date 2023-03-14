@@ -4,6 +4,7 @@ import { Paints } from "./Paints.js";
 import { Wheels } from "./Wheels.js";
 import { Orders } from "./Orders.js";
 import { addCustomOrder } from "./database.js";
+import { Models } from "./Models.js"
 
 document.addEventListener("click",(event) => { 
     if (event.target.id === "orderButton"){
@@ -31,6 +32,10 @@ export const CarsRUs = () => {
 </article>
 
 <article>
+<section class="choices__models options">
+<h2>Model Options</h2>
+  ${Models()}
+  </section>
 <button id="orderButton">Create Custom Order</button>
 </article>
 

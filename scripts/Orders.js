@@ -1,8 +1,10 @@
-import { getOrders, getInteriors, getPaints, getTech, getWheels } from "./database.js";
+import { getOrders, getInteriors, getPaints, getTech, getWheels, getModels } from "./database.js";
 const interiors = getInteriors()
 const paints = getPaints()
 const technologies = getTech()
 const wheels = getWheels()
+const models = getModels()
+
 
 const buildOrderListItem = (order) => {
     const foundInterior = interiors.find(
@@ -28,8 +30,16 @@ const buildOrderListItem = (order) => {
             return wheel.id === order.wheelId
         }
     )
-    const totalCost = foundInterior.price + foundPaint.price + foundTech.price + foundWheel.price
- 
+    const foundModel = models.find(
+        (model) => {
+            return model.id === order.modelId
+        }
+    )
+     
+    let totalCost = 0
+      if(foundInterior && foundPaint && foundTech && foundModel && foundWheel) {  
+        totalCost = (foundInterior.price + foundPaint.price + foundTech.price + foundWheel.price)*foundModel.price
+      }
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",
         currency: "USD"
