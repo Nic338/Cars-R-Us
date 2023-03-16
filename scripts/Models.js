@@ -11,7 +11,7 @@ document.addEventListener("change",(event) => {
 
 export const Models = () => {
     
-    let html = "<h2>Model Choices</h2>"
+    let html = ""
 
     html += '<select id="models">'
     html += '<option value="0">Select a Model</option>'

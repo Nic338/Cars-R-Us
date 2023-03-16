@@ -32,7 +32,7 @@ export const CarsRUs = () => {
 </article>
 
 <article>
-<section class="choices__models options">
+<section class="choices__models model">
 <h2>Model Options</h2>
   ${Models()}
   </section>

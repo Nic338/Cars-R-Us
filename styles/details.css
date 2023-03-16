@@ -1,3 +1,9 @@
+
+.model{
+    flex-basis: 24%;
+    margin: 0 2rem;
+    padding: 1rem;
+}
 .options {
     flex-basis: 24%;
     margin: 0 2rem;

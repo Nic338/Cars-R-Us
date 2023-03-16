@@ -32,7 +32,7 @@ const database = {
 
     
     customOrders: [
-        {id: 1, paintId: 3, interiorId: 2, techId: 1, wheelId: 1, modelId:3, timestamp:1614538976455}
+        // {id: 1, paintId: 3, interiorId: 2, techId: 1, wheelId: 1, modelId:3, timestamp:1614538976455}
     ]
 
 }
@@ -77,7 +77,7 @@ export const addCustomOrder = () => {
 
     // Add a new primary key to the object
     const lastIndex = database.customOrders.length - 1
-    newOrder.id = database.customOrders[lastIndex].id + 1
+    newOrder.id = database.customOrders.length === 0 ? 1 : database.customOrders[lastIndex].id + 1
 
     // Add a timestamp to the order
     newOrder.timestamp = Date.now()
